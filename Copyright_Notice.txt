@@ -1,0 +1,16 @@
+<ATO>
+ATO and TASC calculation Plug-in for BVE5
+Copyright (C) 2019-  stop_pattern
+
+This file is part of ATO.
+
+ATO is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+ATO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with ATO.  If not, see <https://www.gnu.org/licenses/>.
+
+author:stop_pattern
+github:https://github.com/stop-pattern
+twitter:https://twitter.com/stop_pattern
+mail:stoppattern@gmail.com
