@@ -20,7 +20,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -47,8 +47,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ATSPLUGIN_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -82,6 +81,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="source\ATO\ATO\ATO.h" />
+    <ClInclude Include="source\ATO\header\define.h" />
+    <ClInclude Include="source\ATO\header\Header.h" />
+    <ClInclude Include="source\ATO\TASC\TASC.h" />
     <ClInclude Include="source\ats_define.hpp" />
     <ClInclude Include="source\dllmain.hpp" />
     <ClInclude Include="source\system\bus.hpp" />
@@ -91,6 +95,10 @@
     <ClInclude Include="source\vehicle\wiring.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\ATO\ATO\ATO.cpp" />
+    <ClCompile Include="source\ATO\source\Function.cpp" />
+    <ClCompile Include="source\ATO\source\Source.cpp" />
+    <ClCompile Include="source\ATO\TASC\TASC.cpp" />
     <ClCompile Include="source\dllmain.cpp" />
     <ClCompile Include="source\system\environment.cpp" />
     <ClCompile Include="source\vehicle\vehicle.cpp" />

@@ -62,11 +62,7 @@ void c_ATC::Control(State S, int * panel, int * sound) {
 	else if (this->Limit == 0) {
 		ATCstatus |= static_cast<int>(ATC_Status::ATC_brake);
 		this->control.B = int(specific.E / 2);
-<<<<<<< HEAD
 		if (abs(speed) < 0.25) {
-=======
-		if (abs(S.V) < 0.25) {
->>>>>>> c1c04124534cf34f870c58a1ad468660cccec9c4
 			this->control.B = specific.B;
 		}
 	}

@@ -164,11 +164,7 @@ DE Hand SC Elapse(State S, int * panel, int * sound) {
 		ATC.Control(S, panel, sound);	//制御関数
 
 		if (ATCstatus & static_cast<int>(ATC_Status::ATC_brake)) {
-<<<<<<< HEAD
 			if (ATC.control.B >= handle.B || (ATC.Limit == 0 && abs(speed) < 1)) {
-=======
-			if (ATC.control.B >= manual.B || (ATC.Limit == 0 && abs(S.V) < 1)) {
->>>>>>> c1c04124534cf34f870c58a1ad468660cccec9c4
 				handle.P = 0;
 				handle.B = ATC.control.B;
 				panel[static_cast<int>(ATC_Panel::ATC_braking)] = true;
@@ -391,18 +387,11 @@ DE void SC SetSignal(int a) {
 DE void SC SetBeaconData(Beacon b) {
 	switch (b.Num) {
 		case static_cast<int>(ATC_Beacon::notice_force) :
-<<<<<<< HEAD
-=======
-		case static_cast<int>(ATC_Beacon::notice_link) :
->>>>>>> c1c04124534cf34f870c58a1ad468660cccec9c4
 			ATC.notice(b.Sig, b.Data);
 			break;
-<<<<<<< HEAD
 		case static_cast<int>(ATC_Beacon::notice_link) :
 			ATC.notice(b.Sig, b.Data);
 			break;
-=======
->>>>>>> c1c04124534cf34f870c58a1ad468660cccec9c4
 		case static_cast<int>(ATC_Beacon::ORP) :
 			break;
 		case static_cast<int>(ATC_Beacon::TASC_P0) :

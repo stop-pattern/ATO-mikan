@@ -12,6 +12,18 @@
     <Filter Include="vehicle">
       <UniqueIdentifier>{4186ee52-7a57-4b53-adf5-796fa65592fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ATO">
+      <UniqueIdentifier>{fa5d61b5-93f7-4c44-ab02-5167e5804d1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ATO\NewFilter3">
+      <UniqueIdentifier>{fe0aa4dd-ffe1-4a45-a836-f41b7eca753d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ATO\ATO">
+      <UniqueIdentifier>{8445c2f8-e953-4934-a330-83ce75b73cb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ATO\TASC">
+      <UniqueIdentifier>{2fd5c4e2-563f-4d52-bc8a-c6d8b4850cc2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ats_define.hpp">
@@ -35,6 +47,21 @@
     <ClInclude Include="source\vehicle\wiring.hpp">
       <Filter>vehicle</Filter>
     </ClInclude>
+    <ClInclude Include="source\ATO\ATO\ATO.h">
+      <Filter>ATO\ATO</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ATO\TASC\TASC.h">
+      <Filter>ATO\TASC</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ATO\header\define.h">
+      <Filter>ATO</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ATO\header\Header.h">
+      <Filter>ATO</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">
@@ -45,6 +72,18 @@
     </ClCompile>
     <ClCompile Include="source\vehicle\vehicle.cpp">
       <Filter>vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ATO\ATO\ATO.cpp">
+      <Filter>ATO\ATO</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ATO\TASC\TASC.cpp">
+      <Filter>ATO\TASC</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ATO\source\Function.cpp">
+      <Filter>ATO</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ATO\source\Source.cpp">
+      <Filter>ATO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
