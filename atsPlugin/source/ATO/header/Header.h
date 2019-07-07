@@ -7,9 +7,6 @@
 #include "ats.h"
 #include "../ATO/ATO.h"
 #include "../TASC/TASC.h"
-#include "../ATC/ATC.h"
-#include "../INI/Getini.h"
-
 #define LAG	200	//判定ラグ[ms]
 
 
@@ -36,8 +33,6 @@ extern Hand handle;	//ハンドル制御値
 
 extern c_ATO ATO;	//ATO
 extern c_TASC TASC;	//TASC
-extern c_ATC ATC;	//ATC
-extern c_INI INI;	//INI
 
 void reload(void);	//駅ジャンプ時再読み込み処理
 void SetStatus();	//ATO/TASCスイッチ操作

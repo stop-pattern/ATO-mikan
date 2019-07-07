@@ -128,7 +128,6 @@ void WINAPI atsDoorOpen()
 	door = true;
 	if (ATCstatus & static_cast<int>(ATC_Status::ATC_ON)) {
 		ATO.SignalChange();
-		ATC.SignalChange();
 	}
 	if (ATCstatus & static_cast<int>(ATC_Status::ATO_ON)) {
 		ATCstatus &= ~static_cast<int>(ATC_Status::ATO_control);
@@ -166,10 +165,8 @@ void WINAPI atsSetBeaconData(Beacon b)
 {
 		switch (b.Num) {
 		case static_cast<int>(ATC_Beacon::notice_force) :
-			ATC.notice(b.Sig, b.Data);
 			break;
 		case static_cast<int>(ATC_Beacon::notice_link) :
-			ATC.notice(b.Sig, b.Data);
 			break;
 		case static_cast<int>(ATC_Beacon::ORP) :
 			break;

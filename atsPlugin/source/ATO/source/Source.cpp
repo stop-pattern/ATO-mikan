@@ -2,8 +2,6 @@
 #include "../header/Header.h"
 #include "../ATO/ATO.h"
 #include"../TASC/TASC.h"
-#include "../ATC/ATC.h"
-#include "../INI/Getini.h"
 
 int signal;	//信号インデックス
 double speed;	//現在速度
@@ -28,5 +26,3 @@ Hand handle;	//ハンドル制御値
 
 c_ATO ATO;	//ATO
 c_TASC TASC;	//TASC
-c_ATC ATC;	//ATC
-c_INI INI;	//INI
