@@ -15,9 +15,6 @@
     <Filter Include="ATO">
       <UniqueIdentifier>{fa5d61b5-93f7-4c44-ab02-5167e5804d1c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ATO\NewFilter3">
-      <UniqueIdentifier>{fe0aa4dd-ffe1-4a45-a836-f41b7eca753d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ATO\ATO">
       <UniqueIdentifier>{8445c2f8-e953-4934-a330-83ce75b73cb4}</UniqueIdentifier>
     </Filter>
