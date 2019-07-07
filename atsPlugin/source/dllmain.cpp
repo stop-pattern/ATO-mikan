@@ -1,5 +1,8 @@
 ﻿#include "dllmain.hpp"
+#include "ATO/header/Header.h"
+#include "ATO/header/define.h"
 #include "ATO/ATO/ATO.h"
+#include "ATO/TASC/TASC.h"
 
 
 /// このATSプラグインの、コンピュータ上の絶対パス
@@ -75,38 +78,42 @@ void WINAPI atsInitialize(int param)
 /// \return 列車の操縦命令
 Hand WINAPI atsElapse(State vs, int *p_panel, int *p_sound)
 {	
-	Hand ret;
-	return ret;
+	return handle;
 }
 
 /// プレイヤーによって力行ノッチ位置が変更された時に呼び出される。
 /// \param[in] notch 変更後の力行ノッチ位置
 void WINAPI atsSetPower(int notch)
 {
+	manual.P = notch;
 }
 
 /// プレイヤーによってブレーキノッチ位置が変更された時に呼び出される。
 /// \param[in] notch 変更後のブレーキノッチ位置
 void WINAPI atsSetBrake(int notch)
 {
+	manual.B = notch;
 }
 
 /// プレイヤーによってレバーサーの位置が変更された時に呼び出される。
 /// \param[in] pos 変更後のレバーサーの位置
 void WINAPI atsSetReverser(int pos)
 {
+	manual.R = pos;
 }
 
 /// プレイヤーによってATSプラグインで使用するキーが押された時に呼び出される。
 /// \param[in] ats_key_code ATSプラグインで使用するキーのインデックス
 void WINAPI atsKeyDown(int ats_key_code)
 {
+
 }
 
 /// プレイヤーによってATSプラグインで使用するキーが押されていて、それが離された時に呼び出される。
 /// \param[in] ats_key_code ATSプラグインで使用するキーのインデックス
 void WINAPI atsKeyUp(int ats_key_code)
 {
+
 }
 
 /// プレイヤーによって警笛が取り扱われた時に呼び出される。
@@ -118,21 +125,72 @@ void WINAPI atsHornBlow(int ats_horn)
 /// BVEによって列車のドアが開かれた時に呼び出される。
 void WINAPI atsDoorOpen()
 {
+	door = true;
+	if (ATCstatus & static_cast<int>(ATC_Status::ATC_ON)) {
+		ATO.SignalChange();
+		ATC.SignalChange();
+	}
+	if (ATCstatus & static_cast<int>(ATC_Status::ATO_ON)) {
+		ATCstatus &= ~static_cast<int>(ATC_Status::ATO_control);
+		ATCstatus &= ~static_cast<int>(ATC_Status::ATO_doing);
+		ATCstatus |= static_cast<int>(ATC_Status::ATO_stopping);
+	}
+	if (ATCstatus & static_cast<int>(ATC_Status::TASC_ON)) {
+		ATCstatus &= ~static_cast<int>(ATC_Status::TASC_control);
+		ATCstatus &= ~static_cast<int>(ATC_Status::TASC_doing);
+		ATCstatus |= static_cast<int>(ATC_Status::TASC_stopping);
+		TASC.setStatus(false);	//TASC制御解放
+	}
 }
 
 /// BVEによって列車のドアが閉じられた時に呼び出される。
 void WINAPI atsDoorClose()
 {
+	door = false;
 }
 
 /// BVEによって現在の信号現示が変更された時に呼び出される。
 /// \param[in] signal 信号現示のインデックス
-void WINAPI atsSetSignal(int signal)
+void WINAPI atsSetSignal(int sig)
 {
+	signal = sig;
+	LimitSpeed = SpeedLimit[sig];
+
+	//ATC.SignalChange();
+	//ATO.SignalChange();
 }
 
 /// BVEによって地上子を通過した際に呼び出される。
 /// \param[in] beacon_data 地上子の情報
-void WINAPI atsSetBeaconData(Beacon beacon_data)
+void WINAPI atsSetBeaconData(Beacon b)
 {
+		switch (b.Num) {
+		case static_cast<int>(ATC_Beacon::notice_force) :
+			ATC.notice(b.Sig, b.Data);
+			break;
+		case static_cast<int>(ATC_Beacon::notice_link) :
+			ATC.notice(b.Sig, b.Data);
+			break;
+		case static_cast<int>(ATC_Beacon::ORP) :
+			break;
+		case static_cast<int>(ATC_Beacon::TASC_P0) :
+			TASC.setBeacon(0, b);
+			break;
+		case static_cast<int>(ATC_Beacon::TASC_P1) :
+			TASC.setBeacon(1, b);
+			break;
+		case static_cast<int>(ATC_Beacon::TASC_P2) :
+			TASC.setBeacon(2, b);
+			break;
+		case static_cast<int>(ATC_Beacon::TASC_P3) :
+			TASC.setBeacon(3, b);
+			break;
+		case static_cast<int>(ATC_Beacon::TASC_P4) :
+			TASC.setBeacon(4, b);
+			break;
+		case static_cast<int>(ATC_Beacon::TASC_passage) :
+			TASC.setBeacon(-1, b);
+		default:
+			break;
+	}
 }
