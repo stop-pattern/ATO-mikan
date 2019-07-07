@@ -8,9 +8,8 @@
 #define DLL_MAIN_HPP_INCLUDED
 
 #include <windows.h>
+#include "ATO/header/ats.h"
 
-#include "ats_define.hpp"
-#include "system/environment.hpp"
 
 /// このプラグインがBVEによって読み込まれた時に呼び出される。
  void WINAPI atsLoad();
@@ -24,7 +23,7 @@
 
 /// BVEに列車が読み込まれた時に呼び出される。
 /// \param[in] vspec 車両の諸元
- void WINAPI atsSetVehicleSpec(ATS_VEHICLESPEC);
+ void WINAPI atsSetVehicleSpec(Spec);
 
 /// BVEのシナリオが開始された時に呼び出される。
 /// \param[in] param ブレーキハンドルの位置
@@ -35,7 +34,7 @@
 /// \param[out] p_panel 運転台へ送る値の配列 (配列の範囲: 0-255)
 /// \param[out] p_sound サウンド命令の値の配列 (配列の範囲: 0-255)
 /// \return 列車の操縦命令
- ATS_HANDLES WINAPI atsElapse(ATS_VEHICLESTATE vs, int *p_panel, int *p_sound);
+ Hand WINAPI atsElapse(State vs, int *p_panel, int *p_sound);
 
 /// プレイヤーによって力行ノッチ位置が変更された時に呼び出される。
 /// \param[in] notch 変更後の力行ノッチ位置
@@ -73,6 +72,6 @@
 
 /// BVEによって地上子を通過した際に呼び出される。
 /// \param[in] beacon_data 地上子の情報
- void WINAPI atsSetBeaconData(ATS_BEACONDATA beacon_data);
+ void WINAPI atsSetBeaconData(Beacon beacon_data);
 
 #endif	// DLL_MAIN_HPP_INCLUDED

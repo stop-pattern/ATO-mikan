@@ -86,15 +86,7 @@
     <ClInclude Include="source\ATO\header\define.h" />
     <ClInclude Include="source\ATO\header\Header.h" />
     <ClInclude Include="source\ATO\TASC\TASC.h" />
-    <ClInclude Include="source\ats_define.hpp" />
     <ClInclude Include="source\dllmain.hpp" />
-    <ClInclude Include="source\framework.h" />
-    <ClInclude Include="source\pch.h" />
-    <ClInclude Include="source\system\bus.hpp" />
-    <ClInclude Include="source\system\environment.hpp" />
-    <ClInclude Include="source\utility.hpp" />
-    <ClInclude Include="source\vehicle\vehicle.hpp" />
-    <ClInclude Include="source\vehicle\wiring.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ATO\ATO\ATO.cpp" />
@@ -102,9 +94,6 @@
     <ClCompile Include="source\ATO\source\Source.cpp" />
     <ClCompile Include="source\ATO\TASC\TASC.cpp" />
     <ClCompile Include="source\dllmain.cpp" />
-    <ClCompile Include="source\pch.cpp" />
-    <ClCompile Include="source\system\environment.cpp" />
-    <ClCompile Include="source\vehicle\vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="exports.def" />
