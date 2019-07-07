@@ -62,6 +62,9 @@
     <ClInclude Include="source\pch.h">
       <Filter>main</Filter>
     </ClInclude>
+    <ClInclude Include="source\ATO\header\ats.h">
+      <Filter>ATO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dllmain.cpp">

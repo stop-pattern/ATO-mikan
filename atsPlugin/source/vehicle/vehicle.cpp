@@ -8,6 +8,9 @@
 #include "utility.hpp"
 #include "system/environment.hpp"
 
+#include "ATO/header/ats.h"
+#include "ATO/header/define.h"
+
 namespace ats
 {
 
@@ -76,7 +79,40 @@ void vehicle::received_beacon_data(
 								   const ATS_BEACONDATA& beacon_data
 								  )
 {
-
+	Beacon b;
+	b.Data= beacon_data.Optional;
+	b.Num = beacon_data.Type;
+	b.Sig = beacon_data.Signal;
+	b.X = beacon_data.Distance;
+	switch (b.Num) {
+		case static_cast<int>(ATC_Beacon::notice_force) :
+			ATC.notice(b.Sig, b.Data);
+			break;
+			case static_cast<int>(ATC_Beacon::notice_link) :
+				ATC.notice(b.Sig, b.Data);
+				break;
+				case static_cast<int>(ATC_Beacon::ORP) :
+					break;
+					case static_cast<int>(ATC_Beacon::TASC_P0) :
+						TASC.setBeacon(0, b);
+						break;
+						case static_cast<int>(ATC_Beacon::TASC_P1) :
+							TASC.setBeacon(1, b);
+							break;
+							case static_cast<int>(ATC_Beacon::TASC_P2) :
+								TASC.setBeacon(2, b);
+								break;
+								case static_cast<int>(ATC_Beacon::TASC_P3) :
+									TASC.setBeacon(3, b);
+									break;
+									case static_cast<int>(ATC_Beacon::TASC_P4) :
+										TASC.setBeacon(4, b);
+										break;
+										case static_cast<int>(ATC_Beacon::TASC_passage) :
+											TASC.setBeacon(-1, b);
+										default:
+											break;
+	}
 }
 
 /// 処理を実行する。
