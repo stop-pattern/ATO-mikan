@@ -56,7 +56,10 @@
     <ClInclude Include="source\ATO\header\Header.h">
       <Filter>ATO</Filter>
     </ClInclude>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="source\framework.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="source\pch.h">
       <Filter>main</Filter>
     </ClInclude>
   </ItemGroup>
@@ -81,6 +84,9 @@
     </ClCompile>
     <ClCompile Include="source\ATO\source\Source.cpp">
       <Filter>ATO</Filter>
+    </ClCompile>
+    <ClCompile Include="source\pch.cpp">
+      <Filter>main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
