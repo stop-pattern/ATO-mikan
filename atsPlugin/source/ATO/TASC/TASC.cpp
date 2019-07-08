@@ -52,10 +52,10 @@ void c_TASC::Control(State S, int * panel, int * sound) {
 			}
 
 			if (abs(speed) < 5) {
-				if (this->control.B > specific.E / 2) {
+				if (this->control.B > (specific.B + 1) / 2) {	// (this->control.B > specific.E / 2)
 					if (rand() % 2) this->control.B--;
 				}
-				else if (this->control.B < specific.E / 2) {
+				else if (this->control.B < (specific.B + 1) / 2) {	// (this->control.B < specific.E / 2)
 					if (rand() % 2) this->control.B++;
 				}
 
@@ -93,7 +93,7 @@ void c_TASC::Control(State S, int * panel, int * sound) {
 	if (this->control.B < 0) {
 		this->control.B = 0;
 	}
-	else if (this->control.B >= specific.E) {
+	else if (this->control.B >= (specific.B + 1)) {	// (this->control.B >= specific.E)
 		this->control.B = specific.B;
 	}
 }

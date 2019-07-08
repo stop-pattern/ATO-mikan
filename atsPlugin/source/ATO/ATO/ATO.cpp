@@ -13,7 +13,7 @@ void c_ATO::Control(State S, int * panel, int * sound) {
 		}
 		else {
 			this->control.P = 0;
-			this->control.B = specific.E / 2;
+			this->control.B = (specific.B + 1) / 2;	// specific.E / 2;
 		}
 	}
 

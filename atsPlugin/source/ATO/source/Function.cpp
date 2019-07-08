@@ -56,7 +56,7 @@ void SetStatus() {
 
 //マスコンキー操作
 void setKey(int in) {
-	if (Stat.V == 0 && manual.P == 0 && manual.B == specific.E && manual.R == 0 && S == false) {
+	if (Stat.V == 0 && manual.P == 0 && manual.B == (specific.B + 1) && manual.R == 0 && S == false) {	// && manual.B == specific.E &&
 		ATCstatus &= static_cast<int>(ATC_Status::ON);	//SW状態のみ保持
 
 		MasCon_Key += in;
